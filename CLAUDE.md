@@ -62,7 +62,7 @@ _site/          build output (gitignored)
   Rewrite internal links from the old `foo.html` to `/foo/`. Old→new redirects
   are handled at the host (see MIGRATION.md Phase 6).
 - **Photos keep their paths.** Images live under
-  `src/uploads/1/1/7/0/117060630/...` and are referenced root-absolute as
+  `src/assets/uploads/...` and are referenced root-absolute as
   `/uploads/...`. Don't rename or restructure unless you also update every
   reference (and prefer doing it as one deliberate pass, not incrementally).
 - **Carousels** use the `carousel(images)` macro in
