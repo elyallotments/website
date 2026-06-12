@@ -1,14 +1,40 @@
-<footer class="mt-16 border-t border-black/5 bg-brand-ink text-white/90">
-  <div class="mx-auto max-w-6xl px-4 py-10 md:px-6">
-    <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2" aria-label="Footer">
-      {% for item in nav.footer %}
-        <a href="{{ item.url }}" class="font-heading text-sm uppercase tracking-wide transition hover:text-brand-green-light">
-          {{ item.title }}
+<footer class="mt-20 border-t-4 border-brand-green-light bg-brand-green-deep text-white/90">
+  <div class="mx-auto max-w-6xl px-4 py-12 md:px-6">
+    <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+      {# Identity #}
+      <div class="md:col-span-1">
+        <a href="/" class="flex items-center gap-2 font-heading text-lg font-bold tracking-wide text-white">
+          <svg class="h-6 w-6 shrink-0 text-brand-green-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 19c0-7 5-13 14-14 0 9-5 14-14 14Z" /><path d="M9 15c2-3 5-5 8-6" />
+          </svg>
+          Ely Allotments
         </a>
+        <p class="mt-3 text-sm text-white/70">
+          Allotment gardens for rent to the residents of Ely in Cambridgeshire.
+        </p>
+      </div>
+
+      {# Link columns #}
+      {% for col in nav.footerColumns %}
+        <nav aria-label="{{ col.title }}">
+          <h2 class="font-heading text-sm font-semibold uppercase tracking-widest text-brand-green-light">{{ col.title }}</h2>
+          <ul class="mt-3 space-y-2">
+            {% for link in col.links %}
+              <li>
+                <a href="{{ link.url }}" class="text-sm text-white/80 transition hover:text-white hover:underline"
+                  {% if ".pdf" in link.url %}target="_blank" rel="noopener"{% endif %}>
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
       {% endfor %}
-    </nav>
-    <p class="mt-8 text-center text-sm text-white/60">
-      &copy; {% year %} {{ site.name }} Ltd. Run by volunteers on behalf of the City of Ely Council.
-    </p>
+    </div>
+
+    <div class="mt-10 border-t border-white/15 pt-6 text-sm text-white/60">
+      <p>&copy; {% year %} {{ site.name }} Ltd. Run by volunteers on behalf of the City of Ely Council.</p>
+      <p class="mt-1">This is the City of Ely in Cambridgeshire, not to be confused with Ely in Cardiff, South Wales.</p>
+    </div>
   </div>
 </footer>

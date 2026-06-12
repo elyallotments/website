@@ -1,0 +1,28 @@
+{# Page header band — the welcoming title block opening interior pages.
+   With `image`: full-bleed photo + dark scrim + white text.
+   Without: a calm cream band with deep-leaf heading.
+   Usage:
+     {% from "partials/page-header.njk" import pageHeader %}
+     {{ pageHeader("Our sites", lead="Five sites around the city...", image="/assets/uploads/...jpg", alt="...", eyebrow="Allotments in Ely") }}
+#}
+{% macro pageHeader(title, lead="", image="", alt="", eyebrow="") %}
+{%- if image -%}
+<section class="relative overflow-hidden bg-brand-ink text-white">
+  <img src="{{ image }}" alt="{{ alt or '' }}" class="absolute inset-0 h-full w-full object-cover" />
+  <div class="absolute inset-0 bg-gradient-to-t from-brand-ink/85 via-brand-ink/45 to-brand-ink/30"></div>
+  <div class="relative mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
+    {%- if eyebrow %}<p class="font-heading text-sm font-semibold uppercase tracking-widest text-brand-green-light drop-shadow">{{ eyebrow }}</p>{% endif -%}
+    <h1 class="mt-2 font-heading font-bold drop-shadow" style="font-size: var(--text-display)">{{ title }}</h1>
+    {%- if lead %}<p class="lead mt-4 max-w-2xl text-white/90 drop-shadow">{{ lead | safe }}</p>{% endif -%}
+  </div>
+</section>
+{%- else -%}
+<section class="border-b border-brand-green/15 bg-brand-cream">
+  <div class="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+    {%- if eyebrow %}<p class="font-heading text-sm font-semibold uppercase tracking-widest text-brand-green">{{ eyebrow }}</p>{% endif -%}
+    <h1 class="mt-2 font-heading font-bold text-brand-green-deep" style="font-size: var(--text-h1)">{{ title }}</h1>
+    {%- if lead %}<p class="lead mt-4 max-w-2xl">{{ lead | safe }}</p>{% endif -%}
+  </div>
+</section>
+{%- endif -%}
+{% endmacro %}

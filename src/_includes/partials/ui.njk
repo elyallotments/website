@@ -1,0 +1,78 @@
+{# ---------------------------------------------------------------------------
+   Shared UI macros: icon(), button(), chip(), callout().
+   Pure markup + Tailwind utilities — no JS, no icon font, no external requests.
+   Import what you need, e.g.
+     {% from "partials/ui.njk" import button, chip, callout, icon %}
+--------------------------------------------------------------------------- #}
+
+{# Inline line-icon set. Stroke-based, currentColor, decorative by default.
+   names: leaf trowel watering-can map-pin calendar seed sun paw doc
+          arrow-right check #}
+{% macro icon(name, classes="h-5 w-5") %}
+<svg class="{{ classes }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {%- if name == "leaf" -%}
+    <path d="M5 19c0-7 5-13 14-14 0 9-5 14-14 14Z" /><path d="M9 15c2-3 5-5 8-6" />
+  {%- elif name == "trowel" -%}
+    <path d="M14 3l7 7-4 1-4-4 1-4Z" /><path d="M11 9l-7 9 1 2 9-7" />
+  {%- elif name == "watering-can" -%}
+    <path d="M4 11h8v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6Z" /><path d="M12 13l5-3 4 4" /><path d="M9 11V9a2 2 0 0 1 4 0v2" />
+  {%- elif name == "map-pin" -%}
+    <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" /><circle cx="12" cy="10" r="2.5" />
+  {%- elif name == "calendar" -%}
+    <rect x="3" y="5" width="18" height="16" rx="2" /><path d="M3 9h18M8 3v4M16 3v4" />
+  {%- elif name == "seed" -%}
+    <path d="M12 3c4 4 4 10 0 14-4-4-4-10 0-14Z" /><path d="M12 17v4" />
+  {%- elif name == "sun" -%}
+    <circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19" />
+  {%- elif name == "paw" -%}
+    <circle cx="6" cy="11" r="1.6" /><circle cx="10" cy="7.5" r="1.6" /><circle cx="14" cy="7.5" r="1.6" /><circle cx="18" cy="11" r="1.6" /><path d="M8 16c0-2.5 1.8-4 4-4s4 1.5 4 4-1.8 4-4 4-4-1.5-4-4Z" />
+  {%- elif name == "doc" -%}
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" /><path d="M14 3v5h5M9 13h6M9 17h6" />
+  {%- elif name == "arrow-right" -%}
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  {%- elif name == "check" -%}
+    <path d="M4 12l5 5L20 6" />
+  {%- endif -%}
+</svg>
+{% endmacro %}
+
+{# Call-to-action button / link.
+   variant: primary | secondary | ghost
+   icon: optional icon name (leading); external: opens in new tab #}
+{% macro button(label, href, variant="primary", iconName="", external=false) %}
+{%- set base = "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-heading text-base font-semibold tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green-deep" -%}
+{%- if variant == "secondary" -%}
+  {%- set look = "border-2 border-brand-green-deep text-brand-green-deep hover:bg-brand-green-deep hover:text-white" -%}
+{%- elif variant == "ghost" -%}
+  {%- set look = "border-2 border-white/70 text-white hover:bg-white hover:text-brand-green-deep" -%}
+{%- else -%}
+  {%- set look = "bg-brand-green text-white shadow-sm hover:bg-brand-green-deep" -%}
+{%- endif -%}
+<a href="{{ href }}" class="{{ base }} {{ look }}"{% if external %} target="_blank" rel="noopener"{% endif %}>
+  {%- if iconName %}{{ icon(iconName, "h-5 w-5") }}{% endif -%}
+  <span>{{ label }}</span>
+</a>
+{% endmacro %}
+
+{# Small fact / stat pill. e.g. {{ chip("Est. 1991", "calendar") }} #}
+{% macro chip(label, iconName="") %}
+<span class="inline-flex items-center gap-2 rounded-full bg-brand-green/10 px-4 py-1.5 font-heading text-sm font-medium text-brand-green-deep">
+  {%- if iconName %}{{ icon(iconName, "h-4 w-4 text-brand-green") }}{% endif -%}
+  {{ label }}
+</span>
+{% endmacro %}
+
+{# Tinted note / tip box. tone: green | gold | sky #}
+{% macro callout(body, iconName="leaf", tone="green") %}
+{%- if tone == "gold" -%}
+  {%- set wash = "bg-brand-gold/10 border-brand-gold/40 text-brand-ink" -%}{%- set ic = "text-brand-gold" -%}
+{%- elif tone == "sky" -%}
+  {%- set wash = "bg-brand-sky/40 border-brand-sky text-brand-ink" -%}{%- set ic = "text-brand-soil" -%}
+{%- else -%}
+  {%- set wash = "bg-brand-green/10 border-brand-green/30 text-brand-ink" -%}{%- set ic = "text-brand-green" -%}
+{%- endif -%}
+<div class="flex items-start gap-3 rounded-2xl border {{ wash }} p-4">
+  <span class="mt-0.5 shrink-0 {{ ic }}">{{ icon(iconName, "h-5 w-5") }}</span>
+  <div class="prose-page">{{ body | safe }}</div>
+</div>
+{% endmacro %}

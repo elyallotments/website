@@ -4,15 +4,26 @@
    Includes .js because site.js toggles classes like cursor-grab / scale-100. */
 @source "../../src/**/*.{njk,md,html,js}";
 
-/* Brand tokens, carried over from the original site. */
+/* Brand tokens. Soil-to-sky natural palette (see REDESIGN.md §2.1).
+   All text/background pairings used for body copy meet WCAG AA. */
 @theme {
-  --color-brand-green: #6aa630;
-  --color-brand-green-light: #81c94c;
-  --color-brand-gold: #a88d2e;
-  --color-brand-ink: #151e24;
+  --color-brand-green: #5e9b2c;        /* primary — deepened from #6aa630 for AA */
+  --color-brand-green-light: #81c94c;  /* accents, hovers, hairlines */
+  --color-brand-green-deep: #2f5a1c;   /* dark leaf — headings/links on light, footer */
+  --color-brand-gold: #a88d2e;         /* harvest accent — quotes, decorative */
+  --color-brand-soil: #6b4f3a;         /* warm brown — captions, icon strokes */
+  --color-brand-sky: #cfe3ec;          /* pale fen sky — alternate section wash */
+  --color-brand-cream: #f6f3ea;        /* paper background for alternating bands */
+  --color-brand-ink: #151e24;          /* body text */
 
   --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Lora", Georgia, ui-serif, serif;
+
+  /* Fluid display sizes — bold on desktop, calm on mobile. */
+  --text-display: clamp(2rem, 5vw, 3.5rem);
+  --text-h1: clamp(1.875rem, 4vw, 3rem);
+  --text-h2: clamp(1.5rem, 3vw, 2.25rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.5rem);
 }
 
 /* Base element defaults (Tailwind preflight handles the reset). */
@@ -23,11 +34,27 @@
   body {
     font-family: var(--font-body);
     color: var(--color-brand-ink);
+    /* Larger, more legible base for all ages. */
+    font-size: 1.125rem;   /* 18px */
+    line-height: 1.7;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    line-height: 1.15;
+    text-wrap: balance;
   }
+
+  /* Lead paragraph — the welcoming first line of a page or section. */
+  .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--color-brand-ink) 85%, transparent);
+  }
+
   /* Long-form page copy: comfortable defaults for migrated text. */
+  .prose-page {
+    max-width: 68ch;
+  }
   .prose-page :where(p, ul, ol):not(:first-child) {
     margin-top: 1rem;
   }
@@ -40,10 +67,11 @@
     padding-left: 1.5rem;
   }
   .prose-page a {
-    color: var(--color-brand-green);
+    color: var(--color-brand-green-deep);
     text-decoration: underline;
+    text-underline-offset: 0.15em;
   }
   .prose-page a:hover {
-    color: var(--color-brand-gold);
+    color: var(--color-brand-green);
   }
 }

@@ -1,0 +1,43 @@
+{# Seed-packet card — the workhorse component (site cards, resources, steps).
+   Usage:
+     {% from "partials/card.njk" import card %}
+     {{ card({
+       title: "Bridge Fen",
+       href: "/bridge-fen/",
+       image: "/assets/uploads/published/088_1.jpg",
+       alt: "Bridge Fen with Ely Cathedral beyond",
+       iconName: "leaf",
+       eyebrow: "100+ tenants",
+       body: "Our largest site — the famous black fen soil.",
+       cta: "Explore site"
+     }) }}
+   All fields optional except title. If `href` is set the whole card links.
+#}
+{% from "partials/ui.njk" import icon %}
+{% macro card(c) %}
+{%- set tag = "a" if c.href else "div" -%}
+<{{ tag }}{% if c.href %} href="{{ c.href }}"{% endif %}
+  class="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-ink/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green-deep">
+  {%- if c.image -%}
+  <div class="aspect-[4/3] overflow-hidden">
+    <img src="{{ c.image }}" alt="{{ c.alt or '' }}" loading="lazy"
+      class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+  </div>
+  {%- endif -%}
+  <div class="flex flex-1 flex-col p-5">
+    {%- if c.eyebrow or c.iconName -%}
+    <div class="mb-2 flex items-center gap-2 text-brand-green">
+      {%- if c.iconName %}{{ icon(c.iconName, "h-5 w-5") }}{% endif -%}
+      {%- if c.eyebrow %}<span class="font-heading text-xs font-semibold uppercase tracking-wide text-brand-soil">{{ c.eyebrow }}</span>{% endif -%}
+    </div>
+    {%- endif -%}
+    <h3 class="font-heading text-xl font-bold text-brand-green-deep">{{ c.title }}</h3>
+    {%- if c.body -%}<p class="mt-2 flex-1 text-brand-ink/80">{{ c.body | safe }}</p>{%- endif -%}
+    {%- if c.cta -%}
+    <span class="mt-4 inline-flex items-center gap-1 font-heading text-sm font-semibold text-brand-green-deep">
+      {{ c.cta }}{{ icon("arrow-right", "h-4 w-4 transition group-hover:translate-x-0.5") }}
+    </span>
+    {%- endif -%}
+  </div>
+</{{ tag }}>
+{% endmacro %}

@@ -1,0 +1,151 @@
+---
+title: Style guide
+eleventyExcludeFromCollections: true
+---
+{% from "partials/ui.njk" import button, chip, callout, icon %}
+{% from "partials/card.njk" import card %}
+{% from "partials/divider.njk" import divider %}
+{% from "partials/page-header.njk" import pageHeader %}
+
+{{ pageHeader(
+  "Style guide",
+  lead="Phase 1 foundations — palette, type, and the core components for the redesign. Not linked in the site nav; for sign-off only.",
+  eyebrow="Redesign · Phase 1"
+) }}
+
+<div class="mx-auto max-w-5xl space-y-16 px-4 py-16 md:px-6">
+
+  {# ---- Colour ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Palette</h2>
+    <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      {% set swatches = [
+        ["Green", "bg-brand-green", "#5e9b2c"],
+        ["Green light", "bg-brand-green-light", "#81c94c"],
+        ["Green deep", "bg-brand-green-deep", "#2f5a1c"],
+        ["Gold", "bg-brand-gold", "#a88d2e"],
+        ["Soil", "bg-brand-soil", "#6b4f3a"],
+        ["Sky", "bg-brand-sky", "#cfe3ec"],
+        ["Cream", "bg-brand-cream", "#f6f3ea"],
+        ["Ink", "bg-brand-ink", "#151e24"]
+      ] %}
+      {% for s in swatches %}
+        <div class="overflow-hidden rounded-2xl border border-brand-ink/10">
+          <div class="{{ s[1] }} h-20"></div>
+          <div class="p-3">
+            <p class="font-heading text-sm font-semibold">{{ s[0] }}</p>
+            <p class="text-xs text-brand-ink/60">{{ s[2] }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {# ---- Type ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Typography</h2>
+    <div class="mt-6 space-y-3">
+      <p class="font-heading font-bold text-brand-green-deep" style="font-size: var(--text-display)">Display — Montserrat</p>
+      <h1 class="font-heading font-bold" style="font-size: var(--text-h1)">Heading 1</h1>
+      <h2 class="font-heading font-bold" style="font-size: var(--text-h2)">Heading 2</h2>
+      <h3 class="font-heading font-bold" style="font-size: var(--text-h3)">Heading 3</h3>
+      <p class="lead">Lead paragraph — the welcoming opening line, set a little larger in Lora for an easy read across all ages.</p>
+      <p class="max-w-[68ch]">Body copy in Lora at 18px / 1.7. The vitality of a garden does not end with a harvest; it simply takes another form. Comfortable measure, generous line height, left-aligned for readability.</p>
+    </div>
+  </section>
+
+  {{ divider() }}
+
+  {# ---- Buttons ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Buttons</h2>
+    <div class="mt-6 flex flex-wrap items-center gap-4">
+      {{ button("Apply for a plot", "#", "primary", "seed") }}
+      {{ button("Explore our sites", "#", "secondary", "map-pin") }}
+      {{ button("Download PDF", "#", "primary", "doc") }}
+    </div>
+    <div class="mt-4 inline-block rounded-2xl bg-brand-green-deep p-4">
+      {{ button("On dark", "#", "ghost", "leaf") }}
+    </div>
+  </section>
+
+  {# ---- Chips ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Fact chips</h2>
+    <div class="mt-6 flex flex-wrap gap-3">
+      {{ chip("Est. 1991", "calendar") }}
+      {{ chip("200+ members", "leaf") }}
+      {{ chip("Run by volunteers", "trowel") }}
+      {{ chip("Black fen soil", "seed") }}
+    </div>
+  </section>
+
+  {# ---- Icons ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Icons</h2>
+    <div class="mt-6 flex flex-wrap gap-5 text-brand-soil">
+      {% for n in ["leaf","trowel","watering-can","map-pin","calendar","seed","sun","paw","doc","arrow-right","check"] %}
+        <span class="flex flex-col items-center gap-1">{{ icon(n, "h-7 w-7") }}<span class="text-xs text-brand-ink/60">{{ n }}</span></span>
+      {% endfor %}
+    </div>
+  </section>
+
+  {{ divider("gold") }}
+
+  {# ---- Cards ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Seed-packet cards</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      {{ card({
+        title: "Bridge Fen",
+        href: "#",
+        image: "/assets/uploads/published/088_1.jpg",
+        alt: "Bridge Fen allotment site with Ely Cathedral in the distance",
+        eyebrow: "100+ tenants",
+        body: "Our largest site, on the famous black fen soil — like gardening on a giant grow-bag.",
+        cta: "Explore site"
+      }) }}
+      {{ card({
+        title: "New Barns",
+        href: "#",
+        image: "/assets/uploads/newbarns3-ed_orig.jpg",
+        alt: "New Barns allotment site",
+        eyebrow: "58 tenants",
+        body: "Our largest site within the city, next to the playing field. Mains water on site.",
+        cta: "Explore site"
+      }) }}
+      {{ card({
+        title: "What's a pole?",
+        iconName: "seed",
+        body: "An arcane allotment land measure — a 10-pole plot is just over 300 square yards.",
+        href: "#",
+        cta: "Find out"
+      }) }}
+    </div>
+  </section>
+
+  {# ---- Callouts ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Callouts</h2>
+    <div class="mt-6 space-y-4">
+      {{ callout("<p>This is the City of Ely in Cambridgeshire, not Ely in Cardiff, South Wales.</p>", "leaf", "green") }}
+      {{ callout("<p>‘Leisure Gardener’ membership is available to non-allotment holders for £5 per year.</p>", "sun", "gold") }}
+      {{ callout("<p>As at June 2025 there are no long-term vacant plots on any in-town site.</p>", "calendar", "sky") }}
+    </div>
+  </section>
+
+  {{ divider("soil") }}
+
+  {# ---- Page header on photo ---- #}
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-brand-green-deep">Page header (photo variant)</h2>
+  </section>
+</div>
+
+{{ pageHeader(
+  "Bridge Fen",
+  lead="The only Ely site on the famous black fen soil, with a spectacular view of the cathedral.",
+  image="/assets/uploads/dji-0031-bf-sc_orig.jpg",
+  alt="Aerial view of the Bridge Fen allotment site",
+  eyebrow="Our sites"
+) }}

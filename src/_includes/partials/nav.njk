@@ -1,7 +1,10 @@
 <header class="sticky top-0 z-40 border-b border-black/5 bg-white/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
-    <a href="/" class="flex items-center gap-2 font-heading text-lg font-bold tracking-wide text-brand-green">
-Ely<span class="text-brand-ink">&nbsp;Allotments</span>
+    <a href="/" class="flex items-center gap-2 font-heading text-lg font-bold tracking-wide text-brand-green-deep">
+      <svg class="h-6 w-6 shrink-0 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 19c0-7 5-13 14-14 0 9-5 14-14 14Z" /><path d="M9 15c2-3 5-5 8-6" />
+      </svg>
+      <span>Ely <span class="text-brand-ink">Allotments</span></span>
     </a>
 
     <!-- Mobile toggle -->
@@ -54,6 +57,17 @@ Ely<span class="text-brand-ink">&nbsp;Allotments</span>
           {% endif %}
         </div>
       {% endfor %}
+
+      {# Primary call to action — always visible, visually distinct. #}
+      <div class="mt-2 md:ml-2 md:mt-0">
+        <a
+          href="{{ nav.cta.url }}"
+          class="flex items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-2.5 font-heading text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition hover:bg-brand-green-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green-deep"
+          {% if page.url == nav.cta.url %}aria-current="page"{% endif %}
+        >
+          {{ nav.cta.title }}
+        </a>
+      </div>
     </nav>
   </div>
 </header>

@@ -1,15 +1,8 @@
 {
   "items": [
+    { "title": "Home", "url": "/" },
     {
-      "title": "Home",
-      "url": "/",
-      "children": [
-        { "title": "Privacy Notice", "url": "/privacy-notice/" },
-        { "title": "Rules of the Association", "url": "/rules-of-the-association/" }
-      ]
-    },
-    {
-      "title": "Sites",
+      "title": "Our sites",
       "url": "/sites/",
       "children": [
         { "title": "Bridge Fen", "url": "/bridge-fen/" },
@@ -20,19 +13,41 @@
     },
     { "title": "Info", "url": "/info/" },
     {
-      "title": "Contact",
-      "url": "/contact/",
+      "title": "About",
+      "url": "/about/",
       "children": [
-        { "title": "Apply for a plot", "url": "/apply-for-a-plot/" }
+        { "title": "Our history", "url": "/history/" },
+        { "title": "Stores", "url": "/stores/" }
       ]
     },
-    { "title": "About", "url": "/about/" },
-    { "title": "Stores", "url": "/stores/" }
-  ],
-  "footer": [
-    { "title": "Home", "url": "/" },
-    { "title": "About", "url": "/about/" },
-    { "title": "Privacy Notice", "url": "/privacy-notice/" },
     { "title": "Contact", "url": "/contact/" }
+  ],
+  "cta": { "title": "Apply for a plot", "url": "/apply-for-a-plot/" },
+  "footerColumns": [
+    {
+      "title": "Explore",
+      "links": [
+        { "title": "Home", "url": "/" },
+        { "title": "Our sites", "url": "/sites/" },
+        { "title": "Info", "url": "/info/" },
+        { "title": "About", "url": "/about/" }
+      ]
+    },
+    {
+      "title": "Governance",
+      "links": [
+        { "title": "Privacy Notice", "url": "/privacy-notice/" },
+        { "title": "Rules of the Association", "url": "/rules-of-the-association/" },
+        { "title": "Tenancy Agreement", "url": "/assets/documents/allotments_tenancy_agreement__24march2021.pdf" }
+      ]
+    },
+    {
+      "title": "Get involved",
+      "links": [
+        { "title": "Apply for a plot", "url": "/apply-for-a-plot/" },
+        { "title": "Contact us", "url": "/contact/" },
+        { "title": "Stores", "url": "/stores/" }
+      ]
+    }
   ]
 }
