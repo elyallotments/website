@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Ely Allotments and Gardens">
+  <rect width="32" height="32" rx="6" fill="#2f5a1c"/>
+  <!-- simple sprout: stem with two leaves -->
+  <path d="M16 25V13" fill="none" stroke="#f6f3ea" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M16 16C12 16 9 13 9 9c4 0 7 3 7 7Z" fill="#81c94c"/>
+  <path d="M16 14c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#5e9b2c"/>
+</svg>

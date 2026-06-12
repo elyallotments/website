@@ -16,6 +16,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/uploads": "assets/uploads" });
   eleventyConfig.addPassthroughCopy({ "src/assets/documents": "assets/documents" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
 
   // Rebuild when CSS or JS changes (CSS is built by the Tailwind CLI separately).
   eleventyConfig.addWatchTarget("./src/css/");
