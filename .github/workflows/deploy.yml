@@ -36,6 +36,10 @@ jobs:
 
       - name: Build site (Tailwind + Eleventy)
         run: npm run build
+        env:
+          # Served from https://elyallotments.github.io/website/ — Eleventy
+          # rewrites root-absolute URLs to include this prefix.
+          PATH_PREFIX: /website/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
