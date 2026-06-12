@@ -3,6 +3,7 @@ export default function (eleventyConfig) {
   // Copy photos and downloadable docs straight through, preserving their
   // original paths so existing links keep working.
   eleventyConfig.addPassthroughCopy({ "src/assets/uploads": "assets/uploads" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/documents": "assets/documents" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
 
   // Rebuild when CSS or JS changes (CSS is built by the Tailwind CLI separately).
