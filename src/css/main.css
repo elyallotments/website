@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Only scan the Eleventy source for utility classes (not the _original export).
+   Includes .js because site.js toggles classes like cursor-grab / scale-100. */
+@source "../../src/**/*.{njk,md,html,js}";
+
+/* Brand tokens, carried over from the original site. */
+@theme {
+  --color-brand-green: #6aa630;
+  --color-brand-green-light: #81c94c;
+  --color-brand-gold: #a88d2e;
+  --color-brand-ink: #151e24;
+
+  --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Lora", Georgia, ui-serif, serif;
+}
+
+/* Base element defaults (Tailwind preflight handles the reset). */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    color: var(--color-brand-ink);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  /* Long-form page copy: comfortable defaults for migrated text. */
+  .prose-page :where(p, ul, ol):not(:first-child) {
+    margin-top: 1rem;
+  }
+  .prose-page ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  .prose-page ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+  }
+  .prose-page a {
+    color: var(--color-brand-green);
+    text-decoration: underline;
+  }
+  .prose-page a:hover {
+    color: var(--color-brand-gold);
+  }
+}

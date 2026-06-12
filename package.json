@@ -1,0 +1,23 @@
+{
+  "name": "elyallotments",
+  "version": "1.0.0",
+  "description": "City of Ely Allotments and Gardens Association website — Eleventy + Tailwind",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf _site",
+    "build:css": "tailwindcss -i ./src/css/main.css -o ./_site/css/main.css --minify",
+    "build:html": "eleventy",
+    "build": "npm run clean && npm run build:css && npm run build:html",
+    "watch:css": "tailwindcss -i ./src/css/main.css -o ./_site/css/main.css --watch",
+    "watch:html": "eleventy --serve --quiet",
+    "serve": "npm run clean && concurrently -k -n css,11ty -c magenta,cyan \"npm:watch:css\" \"npm:watch:html\"",
+    "start": "npm run serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@tailwindcss/cli": "^4.3.0",
+    "concurrently": "^10.0.3",
+    "tailwindcss": "^4.3.0"
+  }
+}

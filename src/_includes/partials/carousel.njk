@@ -1,0 +1,53 @@
+{# Simple CSS scroll-snap carousel.
+   Usage:
+     {% from "partials/carousel.njk" import carousel %}
+     {{ carousel(images) }}
+   where `images` is a list of { src, alt, caption }.
+   Works with no JS (becomes a horizontal scroll strip); site.js adds
+   prev/next buttons, dot navigation, mouse drag-to-pan, and a full-screen
+   lightbox (click any photo) as progressive enhancement. #}
+{% macro carousel(images, label="Photo gallery") %}
+<div class="carousel relative my-8" data-carousel aria-roledescription="carousel" aria-label="{{ label }}">
+  <ul
+    class="carousel-track flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth rounded-lg"
+    data-carousel-track
+    tabindex="0"
+  >
+    {% for img in images %}
+      <li class="carousel-slide w-full flex-none snap-center" role="group" aria-roledescription="slide" aria-label="{{ loop.index }} of {{ images | length }}">
+        <figure class="m-0">
+          <button
+            type="button"
+            class="carousel-zoom group relative block w-full cursor-zoom-in overflow-hidden rounded-lg"
+            data-carousel-zoom
+            aria-label="View photo {{ loop.index }} of {{ images | length }} full screen"
+          >
+            <img
+              src="{{ img.src }}"
+              alt="{{ img.alt or '' }}"
+              loading="lazy"
+              class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+            />
+            <span class="pointer-events-none absolute right-2 top-2 rounded-full bg-black/50 p-1.5 text-white opacity-0 transition group-hover:opacity-100" aria-hidden="true">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+            </span>
+          </button>
+          {% if img.caption %}
+            <figcaption class="mt-2 text-center text-sm text-brand-ink/70">{{ img.caption }}</figcaption>
+          {% endif %}
+        </figure>
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if images | length > 1 %}
+    <button type="button" class="carousel-prev absolute left-2 top-[40%] hidden -translate-y-1/2 items-center justify-center rounded-full bg-white/90 p-2 text-brand-ink shadow transition hover:bg-white" data-carousel-prev aria-label="Previous photo">
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+    </button>
+    <button type="button" class="carousel-next absolute right-2 top-[40%] hidden -translate-y-1/2 items-center justify-center rounded-full bg-white/90 p-2 text-brand-ink shadow transition hover:bg-white" data-carousel-next aria-label="Next photo">
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </button>
+    <div class="carousel-dots mt-3 flex justify-center gap-2" data-carousel-dots aria-hidden="true"></div>
+  {% endif %}
+</div>
+{% endmacro %}

@@ -1,0 +1,36 @@
+---
+title: Contact
+---
+
+<section class="mx-auto max-w-3xl px-4 py-12 md:px-6">
+  <h1 class="text-3xl font-bold">Contact</h1>
+
+  <h2 class="mt-6 text-center text-2xl font-bold text-brand-green">Get in touch</h2>
+
+  <div class="prose-page mt-6">
+    <p class="text-justify">
+      Please <a href="/apply-for-a-plot/">follow this link</a> to
+      <a href="/apply-for-a-plot/">apply to join the waiting list</a> for an
+      allotment in Ely. To contact the association for any other matters please
+      fill out the form below. It will be sent to the Secretary when you press
+      Submit.
+    </p>
+  </div>
+
+  <figure class="mt-6">
+    <img
+      src="/uploads/1/1/7/0/117060630/published/pen-and-paper.jpg"
+      alt="Pen and paper"
+      loading="lazy"
+      class="mx-auto block max-w-full rounded-lg"
+    />
+  </figure>
+
+  <div class="mt-8">
+    {% if site.forms.contactEmbedSrc %}
+    <iframe src="{{ site.forms.contactEmbedSrc }}" class="mx-auto block w-full max-w-3xl" style="height:1200px" title="Contact form" loading="lazy">Loading…</iframe>
+    {% else %}
+    <p class="rounded-lg bg-brand-green/10 p-4 text-center">The contact form is being set up. In the meantime, please reach us via the details above.</p>
+    {% endif %}
+  </div>
+</section>

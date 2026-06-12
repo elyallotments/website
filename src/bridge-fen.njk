@@ -1,0 +1,111 @@
+---
+title: Bridge Fen
+---
+{% from "partials/carousel.njk" import carousel %}
+
+<section class="mx-auto max-w-3xl px-4 py-12 md:px-6">
+  <h1 class="text-3xl font-bold">Bridge Fen</h1>
+
+  <iframe class="h-[400px] w-full rounded-lg my-6" loading="lazy" src="https://www.google.com/maps?q=52.3859753,0.27345260000004146&z=16&output=embed" title="Map of Bridge Fen"></iframe>
+
+  <div class="prose-page">
+    <p>
+      Bridge Fen is the only Ely allotment site that has the famous black fen soil, the other
+      sites are on the clay outcrop that forms the Isle of Ely. The soil is rich peat, very light
+      and easy to work. It is often described as like gardening on a giant grow-bag. Raised beds
+      are not needed because the peat is almost as deep as the cathedral, of which there is a
+      spectacular view.<br />
+      &nbsp; Unlike the other sites mains water for summer use is not installed at Bridge Fen. The
+      site is below sea level, so there is always moisture down in the soil which encourages deep
+      root growth. Onsite parking is available.<br />
+      &nbsp; An abundance of wildlife can be seen and heard at this site including many species of
+      birds. Most plot holders have installed boundary fences to help provide seedlings with
+      shelter from the wind and the occasional rabbit.<br />
+      &nbsp; &nbsp;See
+      <a href="https://www.cambridgeshire.gov.uk/news/donation-of-fresh-vegetables-makes-big-difference-to-community-cafe/" target="_blank" rel="noopener">this link for news of Bridge Fen produce</a>.
+    </p>
+  </div>
+
+  <figure class="mt-8">
+    <img
+      src="/uploads/1/1/7/0/117060630/published/088_1.jpg"
+      alt="Bridge Fen allotment site with Ely Cathedral in the distance"
+      loading="lazy"
+      class="mx-auto w-full rounded-lg object-cover"
+    />
+  </figure>
+
+  <hr class="my-10 border-brand-gold/40" />
+
+  <h2 class="text-center text-2xl font-bold text-brand-gold">Bridge Fen in Words</h2>
+
+  <div class="prose-page mt-4 text-center">
+    <p>
+      Follow this
+      <a href="https://ericwark.com/" target="_blank" rel="noopener">link to the blog site</a>
+      of a Bridge Fen plotholder who so beautifully captures the essence of time spent down on the
+      fen.
+    </p>
+  </div>
+
+  <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <figure class="m-0">
+      <img
+        src="/uploads/1/1/7/0/117060630/editor/4370.jpeg"
+        alt="Painting of Bridge Fen by Nancy Voak"
+        loading="lazy"
+        class="mx-auto w-full rounded-lg object-cover"
+      />
+    </figure>
+    <figure class="m-0">
+      <img
+        src="/uploads/1/1/7/0/117060630/published/img-8961.jpg"
+        alt="Painting of Bridge Fen by Nancy Voak"
+        loading="lazy"
+        class="mx-auto w-full rounded-lg object-cover"
+      />
+    </figure>
+  </div>
+
+  <p class="mt-4 text-center">Paintings by local artist Nancy Voak</p>
+
+  <hr class="my-10 border-brand-gold/40" />
+
+  <h2 class="text-center text-2xl font-bold">Bridge Fen site in Pictures</h2>
+
+  <p class="mt-4 text-center">
+    Click to enlarge these views of the site on a crisp winter&rsquo;s day in January and the
+    luxuriant warmth of June 2021.<br />
+    All photos by Ellen Barnett.
+  </p>
+
+  {% set galleryPhotos = [
+    { src: "/uploads/1/1/7/0/117060630/eb-1-feb21-1_orig.jpg", alt: "Bridge Fen on a winter's day, February 2021" },
+    { src: "/uploads/1/1/7/0/117060630/eb-2-feb21-1_orig.jpg", alt: "Bridge Fen on a winter's day, February 2021" },
+    { src: "/uploads/1/1/7/0/117060630/eb-3-feb21-1_orig.jpg", alt: "Bridge Fen on a winter's day, February 2021" },
+    { src: "/uploads/1/1/7/0/117060630/eb-4-feb21-1_orig.jpg", alt: "Bridge Fen on a winter's day, February 2021" },
+    { src: "/uploads/1/1/7/0/117060630/eb-6-feb21-1_orig.jpg", alt: "Bridge Fen on a winter's day, February 2021", caption: "let's write this down..." },
+    { src: "/uploads/1/1/7/0/117060630/eb-7-feb21-1_orig.jpg", alt: "Bridge Fen on a winter's day, February 2021", caption: "Shocking!" },
+    { src: "/uploads/1/1/7/0/117060630/img-2576_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2499_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2529_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2530_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2531_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2532_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2537_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2570_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2573_orig.jpg", alt: "View across the Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/img-2574_orig.jpg", alt: "View across the Bridge Fen allotment site" }
+  ] %}
+  {{ carousel(galleryPhotos, "Bridge Fen site in pictures") }}
+
+  {% set morePhotos = [
+    { src: "/uploads/1/1/7/0/117060630/dji-0031-bf-sc_orig.jpg", alt: "Aerial view of Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/bfen-pic2_orig.jpg", alt: "Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/bfen-pic3_orig.jpg", alt: "Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/dji-0032-bf-sc_orig.jpg", alt: "Aerial view of Bridge Fen allotment site" },
+    { src: "/uploads/1/1/7/0/117060630/2017-05-30g_orig.jpg", alt: "Bridge Fen allotment site, May 2017" },
+    { src: "/uploads/1/1/7/0/117060630/2017-10-14b_orig.jpg", alt: "Bridge Fen allotment site, October 2017" }
+  ] %}
+  {{ carousel(morePhotos, "More Bridge Fen photos") }}
+</section>

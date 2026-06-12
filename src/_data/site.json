@@ -1,0 +1,12 @@
+{
+  "name": "City of Ely Allotments and Gardens Association",
+  "shortName": "Ely Allotments",
+  "description": "The City of Ely Allotments and Gardens Association Ltd is run by volunteers on behalf of the City of Ely Council, providing allotment gardens for rent to the residents of Ely in Cambridgeshire.",
+  "url": "https://www.elyallotmentsandgardens.org",
+  "locale": "en-GB",
+  "email": "",
+  "forms": {
+    "applyEmbedSrc": "https://docs.google.com/forms/d/e/1FAIpQLSdt02FWNhgfddulKMKdV4Fs1jGHHnc1gIWo-A21alJuMb-aDQ/viewform?embedded=true",
+    "contactEmbedSrc": ""
+  }
+}

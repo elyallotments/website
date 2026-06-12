@@ -1,0 +1,55 @@
+---
+title: Stores
+---
+
+<section class="mx-auto max-w-3xl px-4 py-12 md:px-6">
+  <h1 class="text-3xl font-bold">Stores</h1>
+
+  <h2 class="mt-6 text-center text-2xl font-bold text-brand-green">Association Stores</h2>
+
+  <div class="prose-page mt-6">
+    <p class="text-justify">
+      The Association Stores are volunteer-run and offer members many gardening
+      essentials at discounted prices. Don&rsquo;t worry if you&rsquo;re not an
+      allotment holder, annual leisure gardener membership is available for
+      &pound;5. The stores are open most Saturdays so do pop by and look around.
+      Alternatively, contact us using the form below.
+    </p>
+  </div>
+
+  <div class="mt-8 grid gap-8 md:grid-cols-2">
+    <div class="prose-page">
+      <p>
+        <strong>Address</strong><br />
+        83B Lynn Road<br />
+        Ely<br />
+        CB6 1DD<br />
+        Grounds of the Ely Beet Sports &amp; Social Club
+      </p>
+      <p>
+        <strong>Opening Hours</strong><br />
+        Saturday 10:00 &ndash; 12:00
+      </p>
+      <p>Card payments accepted.</p>
+    </div>
+
+    <div>
+      <iframe
+        class="h-[300px] w-full rounded-lg"
+        loading="lazy"
+        src="https://www.google.com/maps?q=52.4053573,0.265469&z=14&output=embed"
+        title="Map of the Association Stores, 83B Lynn Road, Ely"
+      ></iframe>
+    </div>
+  </div>
+
+  <h2 class="mt-12 text-center text-2xl font-bold text-brand-green">Enquiries/Orders</h2>
+
+  <div class="mt-6">
+    {% if site.forms.contactEmbedSrc %}
+    <iframe src="{{ site.forms.contactEmbedSrc }}" class="mx-auto block w-full max-w-3xl" style="height:1200px" title="Enquiries and orders form" loading="lazy">Loading…</iframe>
+    {% else %}
+    <p class="rounded-lg bg-brand-green/10 p-4 text-center">The enquiries and orders form is being set up. In the meantime, please <a href="/contact/">contact us</a> using the details above.</p>
+    {% endif %}
+  </div>
+</section>

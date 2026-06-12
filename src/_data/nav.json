@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "title": "Home",
+      "url": "/",
+      "children": [
+        { "title": "Privacy Notice", "url": "/privacy-notice/" },
+        { "title": "Rules of the Association", "url": "/rules-of-the-association/" }
+      ]
+    },
+    {
+      "title": "Sites",
+      "url": "/sites/",
+      "children": [
+        { "title": "Bridge Fen", "url": "/bridge-fen/" },
+        { "title": "Canterbury Avenue", "url": "/canterbury-avenue/" },
+        { "title": "New Barns", "url": "/new-barns/" },
+        { "title": "Upherds Lane", "url": "/upherds-lane/" }
+      ]
+    },
+    { "title": "Info", "url": "/info/" },
+    {
+      "title": "Contact",
+      "url": "/contact/",
+      "children": [
+        { "title": "Apply for a plot", "url": "/apply-for-a-plot/" }
+      ]
+    },
+    { "title": "About", "url": "/about/" },
+    { "title": "Stores", "url": "/stores/" }
+  ],
+  "footer": [
+    { "title": "Home", "url": "/" },
+    { "title": "About", "url": "/about/" },
+    { "title": "Privacy Notice", "url": "/privacy-notice/" },
+    { "title": "Contact", "url": "/contact/" }
+  ]
+}

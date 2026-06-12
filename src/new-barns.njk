@@ -1,0 +1,55 @@
+---
+title: New Barns
+---
+{% from "partials/carousel.njk" import carousel %}
+
+<section class="mx-auto max-w-3xl px-4 py-12 md:px-6">
+  <h1 class="text-3xl font-bold">New Barns</h1>
+
+  <iframe class="h-[400px] w-full rounded-lg my-6" loading="lazy" src="https://www.google.com/maps?q=52.4052703,0.27634360000001834&z=16&output=embed" title="Map of New Barns"></iframe>
+  <p class="text-sm text-brand-ink/70">Note: map marker position is indicative only</p>
+
+  <div class="prose-page mt-6">
+    <p>
+      New Barns is our largest site within the City. It currently has 58 tenants, and is located
+      in New Barns Avenue next to the City cemetery behind the playing field. Most plots are of
+      10 poles in area, although some have been divided into two plots of 5 poles.
+      <a href="/info/#polemeasure">(What&rsquo;s a pole?)</a><br />
+      Mains water is available on this site. Off-street parking in the corner of the recreation
+      ground (accessible from High Barns) is permitted for plot holders provided a parking permit
+      (obtainable from the Site reps) is displayed.
+    </p>
+  </div>
+
+  <div class="my-8 grid gap-4 sm:grid-cols-2">
+    <div class="aspect-video">
+      <iframe class="h-full w-full rounded-lg" loading="lazy" src="https://www.youtube-nocookie.com/embed/53WZm-x7MqM" title="New Barns video" allowfullscreen></iframe>
+    </div>
+    <div class="aspect-video">
+      <iframe class="h-full w-full rounded-lg" loading="lazy" src="https://www.youtube-nocookie.com/embed/FNfo5Z0uS8Y" title="New Barns video" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  {% set lottiPhotos = [
+    { src: "/uploads/1/1/7/0/117060630/lotti4_orig.jpg", alt: "Lotti the New Barns allotment cat" },
+    { src: "/uploads/1/1/7/0/117060630/lotti5_orig.jpg", alt: "Lotti the New Barns allotment cat" },
+    { src: "/uploads/1/1/7/0/117060630/lotti1_orig.jpg", alt: "Lotti the New Barns allotment cat" },
+    { src: "/uploads/1/1/7/0/117060630/lotti2_orig.jpg", alt: "Lotti the New Barns allotment cat" },
+    { src: "/uploads/1/1/7/0/117060630/lotti3_orig.jpg", alt: "Lotti the New Barns allotment cat" }
+  ] %}
+  {{ carousel(lottiPhotos, "New Barns photos") }}
+
+  <p class="prose-page">
+    Lotti, the New Barns allotment cat now enjoying home comforts after recovering from fox attack.
+  </p>
+
+  {% set sitePhotos = [
+    { src: "/uploads/1/1/7/0/117060630/published/p1030943.jpg", alt: "Water installation at New Barns", caption: "Water installation October 2016" },
+    { src: "/uploads/1/1/7/0/117060630/published/img-0299.jpg", alt: "Testing the water troughs", caption: "Testing the water troughs" },
+    { src: "/uploads/1/1/7/0/117060630/published/img-0283-edited.jpg", alt: "Allotmenteering is hard work", caption: "Allotmenteering is hard work!" },
+    { src: "/uploads/1/1/7/0/117060630/editor/img-0532_1.jpeg", alt: "The Gardeners' Arms community shed", caption: "The Gardeners' Arms (community shed)" },
+    { src: "/uploads/1/1/7/0/117060630/published/nb-s-shop.jpg", alt: "The onsite Swap Shop shed", caption: "The onsite Swap Shop shed. All manner of items such as plants, pots, seeds, canes, tools and a lawn mower are swapped here." },
+    { src: "/uploads/1/1/7/0/117060630/p1020279_orig.jpg", alt: "New Barns is a productive site", caption: "New Barns is a productive site" }
+  ] %}
+  {{ carousel(sitePhotos, "New Barns photos") }}
+</section>
