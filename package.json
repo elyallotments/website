@@ -11,8 +11,8 @@
     "build": "npm run clean && npm run build:css && npm run build:html",
     "watch:css": "tailwindcss -i ./src/css/main.css -o ./_site/css/main.css --watch",
     "watch:html": "eleventy --serve --quiet",
-    "serve": "npm run clean && concurrently -k -n css,11ty -c magenta,cyan \"npm:watch:css\" \"npm:watch:html\"",
-    "start": "npm run serve"
+    "serve": "PATH_PREFIX=/ npm run clean && concurrently -k -n css,11ty -c magenta,cyan \"npm:watch:css\" \"npm:watch:html\"",
+    "start": "PATH_PREFIX=/ npm run serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
