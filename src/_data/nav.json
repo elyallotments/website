@@ -11,15 +11,15 @@
         { "title": "Upherds Lane", "url": "/upherds-lane/" }
       ]
     },
-    { "title": "Info", "url": "/info/" },
     {
       "title": "About",
       "url": "/about/",
       "children": [
         { "title": "Our history", "url": "/history/" },
-        { "title": "Stores", "url": "/stores/" }
+        { "title": "Info", "url": "/info/" }
       ]
     },
+    { "title": "Stores", "url": "/stores/" },
     { "title": "Contact", "url": "/contact/" }
   ],
   "cta": { "title": "Apply for a plot", "url": "/apply-for-a-plot/" },
